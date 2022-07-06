@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('click', (e) => renderRamenDetail(newRamen))
   })
 
-  function addNewRamen(ramen) {
+  function addNewRamen(ramenObj) {
     fetch('http://localhost:3000/ramens', {
       method: 'POST',
       headers: {
@@ -30,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
         Accept: 'application/json'
       },
       body: JSON.stringify(ramen)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+
+  function deleteRamen(ramenObj) {
+    fetch(`http://localhost:3000/ramens/${ramenObj.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
     .then(res => res.json())
     .then(data => console.log(data))
@@ -54,12 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const restaurant = document.querySelector('.restaurant')
     const rating = document.querySelector('#rating-display')
     const comment = document.querySelector('#comment-display')
+    const deleteButton = document.createElement('button')
 
     img.src = ramen.image
     name.innerText = ramen.name
     restaurant.innerText = ramen.restaurant
     rating.innerText = ramen.rating
     comment.innerText = ramen.comment
+    deleteButton.innerText = 'Delete Ramen'
+    deleteButton.id = 'delete-button'
+    // deleteButton.addEventListener('click', (e) => deleteRamen())
+
+    ramenDisplay.append(deleteButton)
   }
 
   renderRamenMenu()

@@ -1,3 +1,9 @@
+// How to structure a fetch so that it only needs to be called once.
+// Do it like this, then put it in a function
+// fetch('http://localhost:3000/ramens')
+// .then(res => return res.json()) <--- This will return the array needed
+// .then(ramensArray => console.log(ramensArray))
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.querySelector('#new-ramen')

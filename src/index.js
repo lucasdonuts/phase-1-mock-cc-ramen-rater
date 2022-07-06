@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = document.createElement('img')
     img.src = newRamen.image
     ramenMenu.append(img)
-    img.addEventListener('click', (e) => renderRamenDetail(newRamen))
+    img.addEventListener('click', () => renderRamenDetail(newRamen))
   })
 
   function addNewRamen(ramenObj) {
@@ -87,10 +87,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderRamenMenu()
 })
-
-  // Fetch functions
-  // function fetchRamens() {
-  //   return fetch('http://localhost:3000/ramens')
-  //   .then(res => res.json())
-  //   .then(data => renderRamenMenu(data))
-  // }

@@ -14,11 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
       comment: event.target["new-comment"].value
     }
 
+    addNewRamen(newRamen)
+
     const img = document.createElement('img')
     img.src = newRamen.image
     ramenMenu.append(img)
     img.addEventListener('click', (e) => renderRamenDetail(newRamen))
   })
+
+  function addNewRamen(ramen) {
+    fetch('http://localhost:3000/ramens', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(ramen)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
   
   function renderRamenMenu() {
     
@@ -46,8 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     rating.innerText = ramen.rating
     comment.innerText = ramen.comment
   }
-
-  // function addNewRamen(ramen)
 
   renderRamenMenu()
 })

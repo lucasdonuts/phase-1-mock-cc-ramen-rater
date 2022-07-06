@@ -39,6 +39,14 @@
       "image": "./assets/ramen/kojiro.jpg",
       "rating": 6,
       "comment": "Perfect for a cold night."
+    },
+    {
+      "name": "Lucas",
+      "image": "https://i.etsystatic.com/22659993/r/il/d0355d/3397178917/il_fullxfull.3397178917_qacu.jpg",
+      "restaurant": "res",
+      "rating": "5",
+      "comment": "5",
+      "id": 6
     }
   ]
 }
